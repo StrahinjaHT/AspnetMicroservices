@@ -21,7 +21,7 @@ namespace Discount.Grpc.Services
         {
             _discountRepository = discountRepository ?? throw new ArgumentNullException(nameof(discountRepository));
             _logger = logger ?? throw new ArgumentNullException(nameof(logger));
-            _mapper = mapper;
+            _mapper = mapper ?? throw new ArgumentNullException(nameof(mapper));
         }
 
         public override async Task<CouponModel> GetDiscount(GetDiscountRequest request, ServerCallContext context)
